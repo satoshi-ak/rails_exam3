@@ -1,5 +1,6 @@
 <h1>確認画面</h1>
 <%= form_with(model: @picture, url: pictures_path, local: true) do |form| %>
+  <%= form.hidden_field :content %>
   <%= image_tag(@picture.image.url) if @picture.image && @picture.image.url %>
   <%= form.hidden_field :image_cache %>
   <%= form.submit "投稿する" %>

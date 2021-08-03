@@ -1,3 +1,9 @@
+<p id="notice"><%= notice %></p>
+<h1>Profile<h1>
 <h1><%= @user.name %>のページ</h1>
 <p>メールアドレス: <%= @user.email %></p>
+<p>
+<strong>Icon:</strong>
+<%= image_tag @user.image.url,style:'width:300px;height:200px' %>
+<%= link_to 'Edit', edit_user_path(@user) %>
 <%= link_to 'New Picture', new_picture_path %>
