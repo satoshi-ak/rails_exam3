@@ -1,6 +1,7 @@
 class PicturesController < ApplicationController
   before_action :set_picture, only: %i[ show edit update destroy ]
-  def index
+  before_action :own_user, only: [:edit, :update, :destroy]
+  before_action:logged_in?, only:[:new,:create]
     @pictures = Picture.all
   end
   def show
@@ -57,5 +58,9 @@ class PicturesController < ApplicationController
   end
   def picture_params
     params.require(:picture).permit(:image, :content,:image_cache, :user_id)
+  end
+  def own_user
+    if current_user.id != @picture.id
+      redirect_to user_path
   end
   end
