@@ -4,6 +4,7 @@ class PicturesController < ApplicationController
     @pictures = Picture.all
   end
   def show
+    @favorite = current_user.favorites.find_by(picture_id: @picture.id)
   end
   def new
     if params[:back]

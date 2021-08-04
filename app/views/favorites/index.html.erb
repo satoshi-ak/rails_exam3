@@ -1,0 +1,15 @@
+<h1>お気に入り一覧</h1>
+<table>
+  <tr>
+    <th>user</th>
+    <th>image</th>
+    <th>content</th>
+  <tr/>
+  <% @favorite.each do |favorite| %>
+    <tr>
+      <td><%= favorite.picture.user.name %></td>
+      <td><%= image_tag(favorite.picture.image.url, size: '100x100') %></td>
+      <td><%= favorite.picture.content %></td>
+      <td><%= link_to '詳細を確認', picture_path(favorite.picture.id) %></td>  </tr>
+  <% end %>
+</table> 
