@@ -1,3 +1,28 @@
 // Place all the styles related to the pictures controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  text-align: center;
+}
+li{
+    list-style:none;
+}
+ul{
+    padding:0;
+}
+#picture_image{
+  margin: auto;
+}
+table{
+  margin: auto;
+}
+.btn{
+  margin: 5px;
+}
+.btn a{
+  color: #000;
+}
