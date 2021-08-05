@@ -1,24 +1,23 @@
 <h1>Log in</h1>
 <%= form_with(model: user, local: true) do |f| %>
-  <% if user.errors.any? %>
-   <div class="alert alert-danger">
-    <h3><%= pluralize(user.errors.count, "error") %> prohibited this <%= user.name %> from being saved:</h3>
-     <ul>
-      <% user.errors.full_messages.each do |message| %>
-       <li><%= message %></li>
-<% end %>
-    </ul>
-  </div>
-<% end %>
-<%= f.label :name %>
-<%= f.text_field :name %>
-<%= f.label :email %>
-<%= f.email_field :email %>
-<%= f.label :password %>
-<%= f.password_field :password %>
-<%= f.label :password_confirmation %>
-<%= f.password_field :password_confirmation %>
-<%= f.label :image %>
-<%= f.file_field :image %><br>
-<%= f.submit "Update my account" %>
-<% end %>
+    <% if user.errors.any? %>
+      <div class="alert alert-danger">
+        <h3><%= pluralize(user.errors.count, "error") %> prohibited this <%= user.name %> from being saved:</h3>
+          <ul>
+            <% user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+      </div>
+    <% end %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+    <%= f.label :image %>
+    <%= f.file_field :image %><br>
+    <%= f.submit "Update my account" %>
