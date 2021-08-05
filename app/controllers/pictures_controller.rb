@@ -27,6 +27,7 @@ class PicturesController < ApplicationController
     @picture.user_id = current_user.id
     respond_to do |format|
       if @picture.save
+        PictureMailer.picture_mail(@picture).deliver
         format.html { redirect_to @picture, notice: "Picture was successfully created." }
         format.json { render :show, status: :created, location: @picture }
       else
@@ -61,8 +62,8 @@ class PicturesController < ApplicationController
     params.require(:picture).permit(:image, :content,:image_cache, :user_id)
   end
   def own_user
-    if current_user.id != @picture.id
-      redirect_to user_path
+     if current_user.id != @picture.user_id
+      redirect_to pictures_path, notice: "Picture must be edited or deleted by the post owner only!"
   end
   end
   end
